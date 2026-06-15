@@ -1,0 +1,45 @@
+NOMBRES DE ARCHIVO PARA LAS FOTOS DEL CATALOGO
+Carpeta: img/   |   Formato: .jpg (o .png)
+Tamaño sugerido: cuadrado, 800x800 px aprox.
+
+== ANILLOS ==
+  Anillo Maguey                ->  img/anillo-maguey.jpg
+  Anillo Greca                 ->  img/anillo-greca.jpg
+  Anillo Cenote                ->  img/anillo-cenote.jpg
+  Anillo Cempasúchil           ->  img/anillo-cempasuchil.jpg
+  Anillo Obsidiana             ->  img/anillo-obsidiana.jpg
+
+== ARETES ==
+  Aretes Colibrí               ->  img/aretes-colibri.jpg
+  Aretes Cempasúchil           ->  img/aretes-cempasuchil.jpg
+  Arracadas Sol Mexica         ->  img/arracadas-sol-mexica.jpg
+  Aretes Ola de Jade           ->  img/aretes-ola-de-jade.jpg
+  Aretes Monarca               ->  img/aretes-monarca.jpg
+
+== COLLARES ==
+  Collar Serpiente Emplumada   ->  img/collar-serpiente-emplumada.jpg
+  Gargantilla Jade             ->  img/gargantilla-jade.jpg
+  Collar Mariposa Monarca      ->  img/collar-mariposa-monarca.jpg
+  Collar Flor de Nopal         ->  img/collar-flor-de-nopal.jpg
+  Collar Luna de Plata         ->  img/collar-luna-de-plata.jpg
+
+== PULSERAS ==
+  Pulsera Otomí                ->  img/pulsera-otomi.jpg
+  Esclava Talavera             ->  img/esclava-talavera.jpg
+  Brazalete Maguey             ->  img/brazalete-maguey.jpg
+  Pulsera Río                  ->  img/pulsera-rio.jpg
+  Pulsera Tejido Oaxaca        ->  img/pulsera-tejido-oaxaca.jpg
+
+== DIJES ==
+  Dije Colibrí                 ->  img/dije-colibri.jpg
+  Dije Cempasúchil             ->  img/dije-cempasuchil.jpg
+  Dije Nopalito                ->  img/dije-nopalito.jpg
+  Dije Sol Azteca              ->  img/dije-sol-azteca.jpg
+  Dije Monarca                 ->  img/dije-monarca.jpg
+
+== CONJUNTOS ==
+  Conjunto Monarca             ->  img/conjunto-monarca.jpg
+  Conjunto Jade                ->  img/conjunto-jade.jpg
+  Conjunto Cempasúchil         ->  img/conjunto-cempasuchil.jpg
+  Conjunto Greca               ->  img/conjunto-greca.jpg
+  Conjunto Cenote              ->  img/conjunto-cenote.jpg
