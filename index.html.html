@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alma de Plata — Joyería de plata .925 mexicana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1C20; --jade:#0E5C4A; --jade-deep:#0B3F32; --jade-soft:#2A8C72;
+    --silver:#C7CCD1; --pearl:#E9ECEF; --gold:#C9A24B;
+    --bone:#F1ECE1; --paper:#FBFAF7; --muted:#6A7077; --line:#E2DDD2; --metal:#8C949C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--jade);font-weight:500}
+  .eyebrow.on-dark{color:var(--gold)}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand .seal{width:42px;height:42px;flex:none}
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.04em;line-height:1}
+  .brand .name em{font-style:italic;font-weight:500;color:var(--jade)}
+  .brand .tag{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  nav.links{display:flex;gap:28px}
+  nav.links a{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);position:relative;padding:4px 0;transition:color .2s}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .25s}
+  nav.links a:hover{color:var(--jade)} nav.links a:hover::after{width:100%}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:6px}
+  .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;color:var(--pearl);text-align:center;background:radial-gradient(1100px 620px at 50% -8%,#15715A 0%,var(--jade) 38%,var(--jade-deep) 100%);padding:96px 0 110px}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.10;background:radial-gradient(circle at 50% 40%,#fff 0%,transparent 60%)}
+  .hero .seal-bg{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:540px;opacity:.06;pointer-events:none}
+  .hero .inner{position:relative;z-index:2}
+  .hero .seal-top{width:74px;height:74px;margin-bottom:24px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
+  .hero h1{font-size:clamp(2.5rem,6.2vw,4.5rem);font-weight:600;line-height:1.05;margin:6px auto 8px;max-width:14ch}
+  .hero h1 .it{font-style:italic;font-weight:500;color:#EBD9A8}
+  .hero p.lede{font-size:1.04rem;color:#D7E4DE;max-width:46ch;margin:18px auto 0;font-weight:300}
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+  .btn{display:inline-block;padding:14px 30px;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:.22s;cursor:pointer;border:1px solid transparent}
+  .btn.primary{background:var(--gold);color:#1C1604}
+  .btn.primary:hover{background:#dab35d;transform:translateY(-2px)}
+  .btn.ghost{border-color:rgba(255,255,255,.55);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+
+  /* STRIP */
+  .strip{background:var(--ink);color:var(--pearl)}
+  .strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;padding:20px 28px}
+  .strip .item{display:flex;align-items:center;gap:11px;font-size:.82rem;color:#CBD0D6}
+  .strip .item b{color:#fff;font-weight:500}
+  .strip svg{width:22px;height:22px;flex:none;stroke:var(--gold)}
+
+  section{padding:88px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .sec-head h2{font-size:clamp(2rem,4.5vw,2.9rem);font-weight:600;margin:12px 0 14px;line-height:1.1}
+  .sec-head p{color:var(--muted);font-weight:300;font-size:1.04rem}
+  .rule{width:54px;height:2px;background:var(--gold);margin:0 auto}
+
+  /* CATÁLOGO */
+  #catalogo{background:var(--bone)}
+  .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
+  .filters button{font-family:'Jost';font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:40px;padding:10px 20px;cursor:pointer;transition:.2s}
+  .filters button:hover{border-color:var(--jade-soft);color:var(--jade)}
+  .filters button.active{background:var(--jade);border-color:var(--jade);color:#fff}
+  .catalog{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .pcard{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;transition:.26s;display:flex;flex-direction:column}
+  .pcard:hover{transform:translateY(-6px);box-shadow:0 20px 42px -24px rgba(14,92,74,.55);border-color:#d3cdbf}
+  .pcard-media{position:relative;aspect-ratio:1;display:grid;place-items:center;border-bottom:1px solid var(--line)}
+  .pcard-media svg.piece{width:62%;height:62%}
+  .pcard-media .seal925{position:absolute;top:10px;right:10px;font-size:.56rem;letter-spacing:.1em;background:rgba(255,255,255,.85);color:var(--jade);border:1px solid var(--jade-soft);border-radius:30px;padding:3px 8px;font-weight:600}
+  .pcard-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:5px;flex:1}
+  .pcard-cat{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--jade-soft);font-weight:600}
+  .pcard-name{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:600;line-height:1.1;color:var(--ink)}
+  .pcard-desc{font-size:.82rem;color:var(--muted);font-weight:300;flex:1}
+  .pcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+  .pcard-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--jade)}
+  .pcard-foot .add{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold);padding-bottom:1px}
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
+
+  /* MODAL */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(11,40,33,.55);backdrop-filter:blur(4px)}
+  .modal.open{display:flex}
+  .modal-card{background:var(--paper);max-width:760px;width:100%;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;max-height:90vh}
+  .modal-media{display:grid;place-items:center;padding:30px;border-right:1px solid var(--line)}
+  .modal-media svg.piece{width:72%;height:72%}
+  .modal-info{padding:34px 32px;overflow:auto}
+  .modal-info .cat{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--jade-soft);font-weight:600}
+  .modal-info h3{font-size:2rem;font-weight:600;margin:6px 0 12px;line-height:1.05}
+  .modal-info p{font-size:.94rem;color:#454b52;font-weight:300;margin-bottom:14px}
+  .modal-info .price{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--jade);margin-bottom:6px}
+  .modal-info .spec{font-size:.8rem;color:var(--muted);margin-bottom:4px}
+  .modal-info .spec b{color:var(--ink);font-weight:500}
+  .modal-info .demo{margin-top:16px;font-size:.74rem;color:var(--muted);background:var(--bone);padding:10px 12px;border-radius:4px;border-left:2px solid var(--gold)}
+  .modal-close{position:absolute;top:16px;right:20px;background:rgba(255,255,255,.9);border:1px solid var(--line);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;color:var(--ink)}
+
+  /* NOSOTROS */
+  .mv{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:44px}
+  .mv .block{background:var(--bone);border-left:3px solid var(--jade);padding:32px 34px;border-radius:0 4px 4px 0}
+  .mv .block h3{font-size:1.7rem;color:var(--jade);margin-bottom:10px;font-weight:600}
+  .mv .block p{font-size:1.01rem;color:#454b52;font-weight:300}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .val{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+  .val .dot{width:34px;height:34px;flex:none;border-radius:50%;background:var(--jade);display:grid;place-items:center}
+  .val .dot svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.7}
+  .val h4{font-family:'Jost';font-size:.95rem;font-weight:600;margin-bottom:3px}
+  .val p{font-size:.84rem;color:var(--muted);font-weight:300;line-height:1.5}
+
+  /* POLÍTICAS */
+  #politicas{background:var(--ink);color:var(--pearl)}
+  #politicas .sec-head h2{color:#fff} #politicas .sec-head p{color:#aab0b7}
+  .acc{max-width:880px;margin:0 auto}
+  details{border:1px solid #34343b;border-radius:5px;margin-bottom:14px;background:#222227;overflow:hidden}
+  details[open]{border-color:var(--jade-soft)}
+  summary{list-style:none;cursor:pointer;padding:22px 26px;display:flex;align-items:center;gap:16px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#fff}
+  summary::-webkit-details-marker{display:none}
+  summary .num{font-family:'Jost';font-size:.78rem;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;flex:none}
+  summary .chev{margin-left:auto;transition:transform .25s;color:var(--jade-soft);font-size:1.1rem}
+  details[open] summary .chev{transform:rotate(45deg)}
+  .acc-body{padding:4px 26px 26px 72px;color:#c4cad0;font-weight:300;font-size:.95rem}
+  .acc-body strong{color:#fff;font-weight:500}
+  .acc-body ul{list-style:none;margin:10px 0}
+  .acc-body li{position:relative;padding-left:20px;margin-bottom:7px}
+  .acc-body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--jade-soft);border-radius:50%}
+  .ptable{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88rem}
+  .ptable td{border:1px solid #3a3a42;padding:11px 14px;vertical-align:top}
+  .ptable td:first-child{color:#fff;width:46%}
+  .steps{counter-reset:s;margin-top:14px}
+  .steps li{counter-increment:s;padding-left:42px}
+  .steps li::before{content:counter(s);background:var(--jade-soft);color:#08231b;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-family:'Jost';font-size:.78rem;font-weight:600;top:1px}
+
+  /* PAGOS */
+  #pagos{text-align:center;background:var(--bone)}
+  .pays{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:780px;margin:0 auto}
+  .pay{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:13px 22px;font-size:.82rem;letter-spacing:.06em;color:#3b4148;font-weight:500;display:flex;align-items:center;gap:9px}
+  .pay svg{width:18px;height:18px;stroke:var(--jade);fill:none;stroke-width:1.6}
+  .pay .msi{color:var(--gold);font-weight:600}
+  .pay-note{font-size:.82rem;color:var(--muted);margin-top:24px;font-weight:300}
+
+  /* FOOTER */
+  footer{background:var(--jade-deep);color:#cdddd6;padding:60px 0 26px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot-brand .name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:#fff;font-weight:600}
+  .foot-brand .name em{font-style:italic;color:var(--gold)}
+  .foot-brand p{font-size:.9rem;margin-top:12px;font-weight:300;max-width:34ch;color:#aec5bc}
+  .foot-col h5{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
+  .foot-col a,.foot-col span{display:block;font-size:.9rem;color:#bcd1c9;margin-bottom:9px;font-weight:300}
+  .foot-col a:hover{color:#fff}
+  .copy{padding-top:22px;text-align:center;font-size:.78rem;color:#8faea3;letter-spacing:.05em}
+  .copy .seal{width:28px;height:28px;vertical-align:middle;margin-right:8px;opacity:.85}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:1000px){.catalog{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:880px){
+    .catalog{grid-template-columns:repeat(2,1fr)} .values{grid-template-columns:1fr 1fr}
+    .mv{grid-template-columns:1fr} .foot-grid{grid-template-columns:1fr 1fr}
+    .modal-card{grid-template-columns:1fr;max-height:88vh} .modal-media{border-right:0;border-bottom:1px solid var(--line);padding:24px}
+  }
+  @media(max-width:620px){
+    nav.links{position:fixed;inset:74px 0 auto 0;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 28px 22px;gap:0;transform:translateY(-130%);transition:transform .3s;box-shadow:0 14px 30px -20px rgba(0,0,0,.4)}
+    nav.links.open{transform:none} nav.links a{padding:13px 0;border-bottom:1px solid var(--line)}
+    .burger{display:block} .catalog,.values,.foot-grid{grid-template-columns:1fr} .brand .tag{display:none}
+    .acc-body{padding-left:26px} section{padding:60px 0}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- ===== SÍMBOLOS: emblema + ilustraciones de joyería ===== -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4F6F8"/><stop offset="1" stop-color="#A4ABB2"/></linearGradient>
+    <linearGradient id="ag2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EEF1F4"/><stop offset=".55" stop-color="#AEB5BC"/><stop offset="1" stop-color="#888F97"/></linearGradient>
+  </defs>
+  <!-- EMBLEMA -->
+  <symbol id="emblem" viewBox="0 0 240 240">
+    <defs>
+      <path id="pt" d="M0,-88 C15,-60 15,-28 0,-8 C-15,-28 -15,-60 0,-88 Z"/>
+      <path id="pi" d="M0,-56 C9,-39 9,-20 0,-8 C-9,-20 -9,-39 0,-56 Z"/>
+      <path id="rg" d="M 120,28 a 92,92 0 1,1 -0.1,0" fill="none"/>
+    </defs>
+    <circle cx="120" cy="120" r="104" fill="none" stroke="#0E5C4A" stroke-width="2"/>
+    <circle cx="120" cy="120" r="86" fill="none" stroke="#0E5C4A" stroke-width="0.8" opacity=".5"/>
+    <text font-family="'Cormorant Garamond',serif" font-size="12.5" letter-spacing="3.2" fill="#0E5C4A" font-weight="600"><textPath href="#rg" startOffset="0">PLATA · LEY .925 · HECHO EN MÉXICO · ARTESANAL · </textPath></text>
+    <g transform="translate(120,120)">
+      <g fill="url(#ag)" stroke="#0E5C4A" stroke-width="1"><use href="#pt" transform="rotate(0)"/><use href="#pt" transform="rotate(30)"/><use href="#pt" transform="rotate(60)"/><use href="#pt" transform="rotate(90)"/><use href="#pt" transform="rotate(120)"/><use href="#pt" transform="rotate(150)"/><use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(210)"/><use href="#pt" transform="rotate(240)"/><use href="#pt" transform="rotate(270)"/><use href="#pt" transform="rotate(300)"/><use href="#pt" transform="rotate(330)"/></g>
+      <g fill="#0E5C4A" opacity=".92"><use href="#pi" transform="rotate(15)"/><use href="#pi" transform="rotate(45)"/><use href="#pi" transform="rotate(75)"/><use href="#pi" transform="rotate(105)"/><use href="#pi" transform="rotate(135)"/><use href="#pi" transform="rotate(165)"/><use href="#pi" transform="rotate(195)"/><use href="#pi" transform="rotate(225)"/><use href="#pi" transform="rotate(255)"/><use href="#pi" transform="rotate(285)"/><use href="#pi" transform="rotate(315)"/><use href="#pi" transform="rotate(345)"/></g>
+      <circle r="14" fill="url(#ag2)" stroke="#0E5C4A" stroke-width="1.4"/><circle r="5.5" fill="#C9A24B"/>
+    </g>
+  </symbol>
+
+  <!-- ANILLO -->
+  <symbol id="p-anillo" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="64" rx="22" ry="24" fill="none" stroke="#8C949C" stroke-width="4.5"/>
+    <ellipse cx="50" cy="64" rx="22" ry="24" fill="none" stroke="#EDEFF1" stroke-width="1.4"/>
+    <path d="M50 16 L60 30 L50 40 L40 30 Z" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/>
+    <path d="M50 16 L50 40 M40 30 L60 30" stroke="rgba(255,255,255,.5)" stroke-width=".8"/>
+    <path d="M40 30 L50 34 L60 30" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".8"/>
+  </symbol>
+  <!-- ARETES -->
+  <symbol id="p-aretes" viewBox="0 0 100 100">
+    <g transform="translate(33,0)"><path d="M0 22 a8 8 0 1 1 0 .1" fill="none" stroke="#8C949C" stroke-width="2.4"/><path d="M0 30 C0 46 -9 50 -9 64 a9 9 0 0 0 18 0 C9 50 0 46 0 30" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/><circle cx="0" cy="60" r="3" fill="rgba(255,255,255,.45)"/></g>
+    <g transform="translate(67,0)"><path d="M0 22 a8 8 0 1 1 0 .1" fill="none" stroke="#8C949C" stroke-width="2.4"/><path d="M0 30 C0 46 -9 50 -9 64 a9 9 0 0 0 18 0 C9 50 0 46 0 30" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/><circle cx="0" cy="60" r="3" fill="rgba(255,255,255,.45)"/></g>
+  </symbol>
+  <!-- COLLAR -->
+  <symbol id="p-collar" viewBox="0 0 100 100">
+    <path d="M14 24 Q50 4 86 24" fill="none" stroke="#8C949C" stroke-width="2.6" stroke-dasharray="1 3" stroke-linecap="round"/>
+    <path d="M50 60 L60 70 L50 88 L40 70 Z" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/>
+    <path d="M50 53 a6 6 0 1 1 0 .1" fill="none" stroke="#8C949C" stroke-width="2.4"/>
+    <path d="M40 70 L50 73 L60 70 M50 60 L50 88" stroke="rgba(255,255,255,.4)" stroke-width=".8" fill="none"/>
+  </symbol>
+  <!-- PULSERA -->
+  <symbol id="p-pulsera" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="52" rx="34" ry="22" fill="none" stroke="#8C949C" stroke-width="5"/>
+    <ellipse cx="50" cy="52" rx="34" ry="22" fill="none" stroke="#EDEFF1" stroke-width="1.4"/>
+    <circle cx="50" cy="30" r="8" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/>
+    <circle cx="47" cy="27" r="2.4" fill="rgba(255,255,255,.5)"/>
+  </symbol>
+  <!-- DIJE -->
+  <symbol id="p-dije" viewBox="0 0 100 100">
+    <path d="M50 18 a7 7 0 1 1 0 .1" fill="none" stroke="#8C949C" stroke-width="2.6"/>
+    <path d="M50 30 C30 30 24 52 50 84 C76 52 70 30 50 30 Z" fill="var(--gem)" stroke="#4a4a52" stroke-width="1.1"/>
+    <path d="M50 40 C42 42 40 52 50 64 C60 52 58 42 50 40 Z" fill="rgba(255,255,255,.28)"/>
+  </symbol>
+  <!-- CONJUNTO -->
+  <symbol id="p-conjunto" viewBox="0 0 100 100">
+    <g transform="translate(-6,4)"><path d="M16 26 Q42 10 68 26" fill="none" stroke="#8C949C" stroke-width="2.2" stroke-dasharray="1 3" stroke-linecap="round"/><path d="M42 50 L50 58 L42 72 L34 58 Z" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/></g>
+    <g transform="translate(74,30)"><path d="M0 0 a6 6 0 1 1 0 .1" fill="none" stroke="#8C949C" stroke-width="2"/><path d="M0 7 C0 18 -6 22 -6 32 a6 6 0 0 0 12 0 C6 22 0 18 0 7" fill="var(--gem)" stroke="#4a4a52" stroke-width="1"/></g>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="brand">
+      <svg class="seal"><use href="#emblem"/></svg>
+      <span><span class="name">Alma <em>de</em> Plata</span><span class="tag">Plata con alma mexicana</span></span>
+    </a>
+    <nav class="links" id="menu">
+      <a href="#catalogo">Catálogo</a><a href="#nosotros">Nosotros</a><a href="#politicas">Garantía</a><a href="#pagos">Pagos</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <svg class="seal-bg"><use href="#emblem"/></svg>
+  <div class="wrap inner">
+    <svg class="seal-top"><use href="#emblem"/></svg>
+    <div class="eyebrow on-dark">Joyería de plata .925 · México</div>
+    <h1>El alma de México,<br><span class="it">en cada destello.</span></h1>
+    <p class="lede">Anillos, aretes, collares, pulseras, dijes y conjuntos en plata .925, con diseños inspirados en la riqueza cultural y la naturaleza de México.</p>
+    <div class="cta-row"><a href="#catalogo" class="btn primary">Explorar catálogo</a><a href="#nosotros" class="btn ghost">Conócenos</a></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip"><div class="wrap">
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span><b>Plata .925</b> certificada</span></div>
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><span><b>Envíos</b> a todo México</span></div>
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M21 12a9 9 0 11-3-6.7M21 4v4h-4"/></svg><span><b>30 días</b> para devoluciones</span></div>
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg><span><b>Pago seguro</b> y MSI</span></div>
+</div></div>
+
+<!-- CATÁLOGO -->
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="rule"></div><h2>Nuestro catálogo</h2><p>Piezas artesanales en plata .925 inspiradas en la cultura y la naturaleza de México.</p></div>
+    <div class="filters reveal" id="filters">
+      <button data-cat="all" class="active">Todos</button>
+      <button data-cat="Anillos">Anillos</button><button data-cat="Aretes">Aretes</button><button data-cat="Collares">Collares</button>
+      <button data-cat="Pulseras">Pulseras</button><button data-cat="Dijes">Dijes</button><button data-cat="Conjuntos">Conjuntos</button>
+    </div>
+    <div class="catalog" id="catalog"></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-card" style="position:relative">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+    <div class="modal-media" id="mMedia"></div>
+    <div class="modal-info">
+      <div class="cat" id="mCat"></div><h3 id="mName"></h3>
+      <div class="price" id="mPrice"></div>
+      <p id="mDesc"></p>
+      <div class="spec"><b>Material:</b> Plata fina .925 con sello de ley</div>
+      <div class="spec"><b>Inspiración:</b> <span id="mInsp"></span></div>
+      <div class="spec"><b>Garantía:</b> 6 meses contra defectos de fabricación</div>
+      <div class="demo">Pieza de catálogo de demostración. Proyecto académico — no disponible para venta real.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="rule"></div><h2>Nuestra esencia</h2><p>Una marca que celebra la cultura y la naturaleza de México en cada pieza de plata.</p></div>
+    <div class="mv">
+      <div class="block reveal"><h3>Misión</h3><p>Ofrecer joyería de plata .925 auténtica y de origen mexicano que celebra nuestra cultura y nuestra naturaleza, acercando piezas artesanales de calidad a través de una experiencia de compra en línea sencilla, segura y confiable.</p></div>
+      <div class="block reveal"><h3>Visión</h3><p>Ser, hacia 2030, la tienda en línea de referencia en joyería de plata mexicana: reconocida por su autenticidad, su diseño con identidad y un servicio que genera clientes de por vida, con presencia nacional y proyección internacional.</p></div>
+    </div>
+    <div class="values">
+      <div class="val reveal"><span class="dot"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span><div><h4>Autenticidad</h4><p>Plata .925 certificada con sello de ley, sin sustitutos ni engaños.</p></div></div>
+      <div class="val reveal"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 4 1 5.5L12 20l-5 2.3 1-5.5-4-4 5.5-.8z"/></svg></span><div><h4>Calidad artesanal</h4><p>Colaboramos con talleres y plateros mexicanos de tradición.</p></div></div>
+      <div class="val reveal"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h4>Orgullo mexicano</h4><p>Diseños inspirados en nuestra cultura y nuestra naturaleza.</p></div></div>
+      <div class="val reveal"><span class="dot"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><div><h4>Confianza</h4><p>Precios, materiales y políticas claras en todo momento.</p></div></div>
+      <div class="val reveal"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h9a3 3 0 010 6H7"/></svg></span><div><h4>Comercio justo</h4><p>Relaciones dignas y sostenibles con quienes crean cada pieza.</p></div></div>
+      <div class="val reveal"><span class="dot"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.5L3 21l2-5.6A8.5 8.5 0 1121 11.5z"/></svg></span><div><h4>Cercanía</h4><p>Atención humana antes, durante y después de tu compra.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- POLÍTICAS -->
+<section id="politicas">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="rule"></div><h2>Confianza y políticas</h2><p>Reglas claras para que compres con tranquilidad. Toca cada apartado.</p></div>
+    <div class="acc">
+      <details open class="reveal"><summary><span class="num">1</span> Garantía <span class="chev">+</span></summary>
+        <div class="acc-body"><p>Cada pieza es <strong>plata .925 garantizada</strong>, con sello de ley. Ofrecemos <strong>6 meses de garantía contra defectos de fabricación</strong> (broches, soldaduras y engastes).</p>
+          <p style="margin-top:10px">No cubre:</p><ul><li>Desgaste normal por el uso.</li><li>Oxidación por falta de cuidado.</li><li>Golpes o roturas por mal uso.</li><li>Modificaciones hechas por terceros.</li></ul></div>
+      </details>
+      <details class="reveal"><summary><span class="num">2</span> Devoluciones <span class="chev">+</span></summary>
+        <div class="acc-body"><p>Aceptamos devoluciones dentro de <strong>30 días naturales</strong> tras la recepción, con la pieza sin uso, en su empaque original y con comprobante.</p>
+          <p style="margin-top:10px"><strong>Sí se aceptan</strong> cuando:</p><ul><li>El producto tiene un defecto de fabricación.</li><li>Recibiste un producto equivocado o hubo error en el envío.</li><li>La pieza se dañó en el transporte.</li><li>El producto es distinto a lo descrito.</li><li>Cambio de opinión, si cumple las condiciones de pieza sin uso.</li></ul>
+          <p style="margin-top:10px"><strong>No se aceptan</strong>:</p><ul><li>Aretes y piezas en contacto con piel/oído, por higiene (salvo defecto).</li><li>Piezas personalizadas o grabadas.</li><li>Artículos de "venta final".</li><li>Piezas con uso o fuera de plazo.</li></ul>
+          <p style="margin-top:14px"><strong>¿Quién cubre el envío?</strong></p>
+          <table class="ptable"><tr><td>Defecto, error nuestro o daño en transporte</td><td>Alma de Plata cubre el <strong>100%</strong> del envío de devolución y reenvío, o reembolso total.</td></tr><tr><td>Cambio de opinión del cliente</td><td>El <strong>cliente cubre</strong> el envío de devolución; se reembolsa el valor del producto.</td></tr></table>
+          <p style="margin-top:8px"><strong>Proceso:</strong></p>
+          <ul class="steps"><li>Solicita la devolución dentro del plazo con número de pedido y fotos.</li><li>Recibe la autorización (folio RMA) con instrucciones.</li><li>Envía la pieza en su empaque original con el comprobante.</li><li>Inspección en 3–5 días hábiles.</li><li>Reembolso o cambio en 5–10 días hábiles tras la aprobación.</li></ul></div>
+      </details>
+      <details class="reveal"><summary><span class="num">3</span> Cancelación de pedidos <span class="chev">+</span></summary>
+        <div class="acc-body"><p>Puedes cancelar <strong>sin penalización</strong> mientras el pedido esté "Recibido / En preparación" y no haya sido enviado (normalmente dentro de las primeras <strong>24 horas</strong>).</p>
+          <ul><li><strong>Antes del envío:</strong> reembolso del 100%, sin penalización.</li><li><strong>Una vez enviado:</strong> ya no se cancela; se gestiona como devolución.</li><li><strong>Personalizadas/grabadas:</strong> solo antes de iniciar su producción.</li></ul>
+          <p style="margin-top:10px">En reembolsos a tarjeta, Alma de Plata absorbe la comisión de la pasarela.</p>
+          <p style="margin-top:14px"><strong>Procedimiento:</strong></p>
+          <ul class="steps"><li>Contáctanos de inmediato indicando "Cancelación" y tu número de pedido.</li><li>Confirmamos el estado del pedido.</li><li>Si procede, se cancela y se reembolsa al método original en 5–10 días hábiles.</li></ul></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- PAGOS -->
+<section id="pagos">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="rule"></div><h2>Medios de pago</h2><p>Paga como prefieras, con cifrado de extremo a extremo. No almacenamos los datos de tu tarjeta.</p></div>
+    <div class="pays reveal">
+      <div class="pay"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Visa</div>
+      <div class="pay">Mastercard</div><div class="pay">American Express</div><div class="pay">PayPal</div><div class="pay">Mercado Pago</div>
+      <div class="pay"><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg>Transferencia SPEI</div>
+      <div class="pay"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>Efectivo en OXXO</div>
+      <div class="pay"><span class="msi">Meses sin intereses</span> · 3, 6, 9 y 12</div>
+    </div>
+    <p class="pay-note">Procesamos los pagos mediante pasarelas certificadas (Mercado Pago / PayPal) con protección antifraude.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><div class="name">Alma <em>de</em> Plata</div><p>Joyería de plata .925 con diseños inspirados en la cultura y la naturaleza de México. Plata con alma mexicana.</p></div>
+      <div class="foot-col"><h5>Tienda</h5><a href="#catalogo">Catálogo completo</a><a href="#catalogo">Anillos y aretes</a><a href="#catalogo">Collares y dijes</a><a href="#catalogo">Pulseras y conjuntos</a></div>
+      <div class="foot-col"><h5>Ayuda</h5><a href="#politicas">Garantía</a><a href="#politicas">Devoluciones</a><a href="#politicas">Cancelaciones</a><span>contacto@almadeplata.mx</span></div>
+    </div>
+    <div class="copy"><svg class="seal"><use href="#emblem"/></svg>© 2026 Alma de Plata · Plata .925 garantizada · Hecho en México</div>
+  </div>
+</footer>
+
+<script>
+  const GEM={jade:'#2A8C72',turquesa:'#2BB3C0',ambar:'#D99A2B',obsidiana:'#2B2B33',coral:'#D8786B',plata:'#CDD3D9'};
+  const BG=['linear-gradient(145deg,#FBFAF7,#EDE7DA)','linear-gradient(145deg,#F4F6F7,#DDE3E6)','linear-gradient(145deg,#F3F1EA,#E6EAE2)','linear-gradient(145deg,#F7F4EE,#E9E3D6)'];
+  const SYM={Anillos:'p-anillo',Aretes:'p-aretes',Collares:'p-collar',Pulseras:'p-pulsera',Dijes:'p-dije',Conjuntos:'p-conjunto'};
+
+  const P=[
+    // ANILLOS
+    {n:'Anillo Maguey',c:'Anillos',g:'jade',pr:890,i:'El maguey y el agave mexicano',d:'Banda con relieve de hojas de agave y engaste de jade; la fuerza del maguey en plata.'},
+    {n:'Anillo Greca',c:'Anillos',g:'plata',pr:750,i:'Las grecas de Mitla',d:'Patrón de greca prehispánica grabado a mano sobre una banda ancha de plata pulida.'},
+    {n:'Anillo Cenote',c:'Anillos',g:'turquesa',pr:1150,i:'Los cenotes de la península',d:'Turquesa central que evoca el agua cristalina de un cenote, abrazada por plata fina.'},
+    {n:'Anillo Cempasúchil',c:'Anillos',g:'ambar',pr:980,i:'La flor de cempasúchil',d:'Flor de muerto estilizada con ámbar de Chiapas; un homenaje a nuestras tradiciones.'},
+    {n:'Anillo Obsidiana',c:'Anillos',g:'obsidiana',pr:1090,i:'La obsidiana volcánica',d:'Piedra de obsidiana negra engastada en plata; elegancia ancestral y misteriosa.'},
+    // ARETES
+    {n:'Aretes Colibrí',c:'Aretes',g:'plata',pr:690,i:'El colibrí mensajero',d:'Pareja de colibríes en vuelo, símbolo de alegría y buena fortuna, en plata calada.'},
+    {n:'Aretes Cempasúchil',c:'Aretes',g:'ambar',pr:820,i:'La flor de cempasúchil',d:'Flores colgantes con detalle en ámbar; color y vida que se mueven contigo.'},
+    {n:'Arracadas Sol Mexica',c:'Aretes',g:'plata',pr:750,i:'El sol del calendario mexica',d:'Arracadas con grabado solar inspirado en la iconografía mexica. Plata maciza.'},
+    {n:'Aretes Ola de Jade',c:'Aretes',g:'jade',pr:980,i:'El jade mesoamericano',d:'Gota de jade que cae como una ola; el verde que los mexicas valoraban más que el oro.'},
+    {n:'Aretes Monarca',c:'Aretes',g:'coral',pr:890,i:'La mariposa monarca',d:'Alas de monarca con esmalte cálido; la migración hecha joya delicada.'},
+    // COLLARES
+    {n:'Collar Serpiente Emplumada',c:'Collares',g:'jade',pr:1890,i:'Quetzalcóatl',d:'Dije de la serpiente emplumada con detalle de jade; mito y naturaleza en tu cuello.'},
+    {n:'Gargantilla Jade',c:'Collares',g:'jade',pr:2200,i:'El jade precioso',d:'Cabujón de jade central sobre una gargantilla de plata fina; pieza de declaración.'},
+    {n:'Collar Mariposa Monarca',c:'Collares',g:'ambar',pr:1650,i:'La mariposa monarca',d:'Dije de monarca con ámbar; celebra el viaje más asombroso de la naturaleza.'},
+    {n:'Collar Flor de Nopal',c:'Collares',g:'turquesa',pr:1490,i:'La flor del nopal',d:'Flor de nopal con turquesa; lo que florece en el desierto, ahora en plata.'},
+    {n:'Collar Luna de Plata',c:'Collares',g:'plata',pr:1290,i:'La luna y sus ciclos',d:'Luna creciente pulida que cuelga de una cadena delicada; serenidad nocturna.'},
+    // PULSERAS
+    {n:'Pulsera Otomí',c:'Pulseras',g:'coral',pr:1250,i:'El bordado otomí (tenango)',d:'Animales y flores del bordado otomí trazados en plata con acentos de color.'},
+    {n:'Esclava Talavera',c:'Pulseras',g:'turquesa',pr:1490,i:'La talavera poblana',d:'Esclava con motivo de talavera y turquesa; el azulejo mexicano hecho joya.'},
+    {n:'Brazalete Maguey',c:'Pulseras',g:'plata',pr:1690,i:'El maguey',d:'Brazalete rígido con hojas de maguey en relieve; presencia y carácter.'},
+    {n:'Pulsera Río',c:'Pulseras',g:'plata',pr:980,i:'El cauce de los ríos',d:'Tejido fino que fluye como una corriente de agua sobre la muñeca.'},
+    {n:'Pulsera Tejido Oaxaca',c:'Pulseras',g:'ambar',pr:1150,i:'El trenzado oaxaqueño',d:'Trenzado tradicional con ámbar; la artesanía de Oaxaca en cada eslabón.'},
+    // DIJES
+    {n:'Dije Colibrí',c:'Dijes',g:'plata',pr:540,i:'El colibrí',d:'Pequeño colibrí en plata calada; lleva contigo un mensaje de buena fortuna.'},
+    {n:'Dije Cempasúchil',c:'Dijes',g:'ambar',pr:480,i:'La flor de cempasúchil',d:'Flor de muerto con ámbar; raíz, color y memoria en un dije ligero.'},
+    {n:'Dije Nopalito',c:'Dijes',g:'jade',pr:450,i:'El nopal',d:'Nopal estilizado con jade; el emblema de México hecho amuleto.'},
+    {n:'Dije Sol Azteca',c:'Dijes',g:'plata',pr:620,i:'La Piedra del Sol',d:'Sol inspirado en el calendario azteca, grabado con detalle en plata maciza.'},
+    {n:'Dije Monarca',c:'Dijes',g:'coral',pr:560,i:'La mariposa monarca',d:'Mariposa monarca con esmalte cálido; transformación y libertad.'},
+    // CONJUNTOS
+    {n:'Conjunto Monarca',c:'Conjuntos',g:'ambar',pr:2490,i:'La mariposa monarca',d:'Collar y aretes a juego con motivo de monarca y ámbar; armonía total.'},
+    {n:'Conjunto Jade',c:'Conjuntos',g:'jade',pr:3200,i:'El jade mesoamericano',d:'Gargantilla y aretes de jade; nuestra pieza más noble, para ocasiones especiales.'},
+    {n:'Conjunto Cempasúchil',c:'Conjuntos',g:'ambar',pr:2690,i:'La flor de cempasúchil',d:'Collar y aretes de flor de muerto; tradición que se lleva con orgullo.'},
+    {n:'Conjunto Greca',c:'Conjuntos',g:'plata',pr:1890,i:'Las grecas de Mitla',d:'Anillo y aretes con greca prehispánica; geometría ancestral coordinada.'},
+    {n:'Conjunto Cenote',c:'Conjuntos',g:'turquesa',pr:3490,i:'Los cenotes',d:'Collar y pulsera con turquesa; la frescura del agua en un set completo.'},
+  ];
+
+  const fmt=n=>'$'+n.toLocaleString('es-MX')+' MXN';
+  const cat=document.getElementById('catalog');
+  function piece(p){return `<svg class="piece" style="--gem:${GEM[p.g]}"><use href="#${SYM[p.c]}"/></svg>`;}
+  function render(f){
+    const list=f==='all'?P:P.filter(p=>p.c===f);
+    cat.innerHTML=list.length?list.map((p,idx)=>`
+      <div class="pcard reveal in" data-idx="${P.indexOf(p)}">
+        <div class="pcard-media" style="background:${BG[idx%BG.length]}"><span class="seal925">.925</span>${piece(p)}</div>
+        <div class="pcard-body">
+          <span class="pcard-cat">${p.c}</span>
+          <span class="pcard-name">${p.n}</span>
+          <span class="pcard-desc">${p.d}</span>
+          <div class="pcard-foot"><span class="pcard-price">${fmt(p.pr)}</span><span class="add">Ver pieza</span></div>
+        </div>
+      </div>`).join(''):'<p class="empty">No hay piezas en esta categoría.</p>';
+  }
+  render('all');
+
+  // filtros
+  document.getElementById('filters').addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b)return;
+    document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); render(b.dataset.cat);
+  });
+
+  // modal
+  const modal=document.getElementById('modal');
+  cat.addEventListener('click',e=>{
+    const card=e.target.closest('.pcard'); if(!card)return;
+    const p=P[card.dataset.idx];
+    document.getElementById('mMedia').innerHTML=piece(p);
+    document.getElementById('mCat').textContent=p.c;
+    document.getElementById('mName').textContent=p.n;
+    document.getElementById('mPrice').textContent=fmt(p.pr);
+    document.getElementById('mDesc').textContent=p.d;
+    document.getElementById('mInsp').textContent=p.i;
+    modal.classList.add('open');
+  });
+  const close=()=>modal.classList.remove('open');
+  document.getElementById('modalClose').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+  // menú móvil + acordeón + reveal
+  const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+  const dets=document.querySelectorAll('#politicas details');
+  dets.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)dets.forEach(o=>{if(o!==d)o.open=false})}));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
