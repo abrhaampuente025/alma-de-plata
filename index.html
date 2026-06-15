@@ -38,11 +38,12 @@
   .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
 
   /* HERO */
-  .hero{position:relative;overflow:hidden;color:var(--pearl);text-align:center;background:radial-gradient(1100px 620px at 50% -8%,#15715A 0%,var(--jade) 38%,var(--jade-deep) 100%);padding:96px 0 110px}
+  .hero{position:relative;overflow:hidden;color:var(--pearl);text-align:center;background:url('img/hero.jpg') center/cover no-repeat,var(--jade-deep);padding:96px 0 110px}
   .hero::before{content:"";position:absolute;inset:0;opacity:.10;background:radial-gradient(circle at 50% 40%,#fff 0%,transparent 60%)}
+  .hero::after{content:"";position:absolute;inset:0;background:rgba(11,40,33,.30);z-index:1}
+  .hero .eyebrow,.hero h1,.hero p.lede{text-shadow:0 2px 12px rgba(0,0,0,.5)}
   .hero .seal-bg{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:540px;opacity:.06;pointer-events:none}
   .hero .inner{position:relative;z-index:2}
-  .hero .seal-top{width:110px;height:auto;margin-bottom:24px;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
   .hero h1{font-size:clamp(2.5rem,6.2vw,4.5rem);font-weight:600;line-height:1.05;margin:6px auto 8px;max-width:14ch}
   .hero h1 .it{font-style:italic;font-weight:500;color:#EBD9A8}
   .hero p.lede{font-size:1.04rem;color:#D7E4DE;max-width:46ch;margin:18px auto 0;font-weight:300}
@@ -261,7 +262,6 @@
 <section class="hero" id="inicio">
   <svg class="seal-bg"><use href="#emblem"/></svg>
   <div class="wrap inner">
-    <img class="seal-top" src="img/logo-central.png" alt="Alma de Plata">
     <div class="eyebrow on-dark">Joyería de plata .925 · México</div>
     <h1>El alma de México,<br><span class="it">en cada destello.</span></h1>
     <p class="lede">Anillos, aretes, collares, pulseras, dijes y conjuntos en plata .925, con diseños inspirados en la riqueza cultural y la naturaleza de México.</p>
