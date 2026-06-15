@@ -26,7 +26,7 @@
   header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
   .brand{display:flex;align-items:center;gap:13px}
-  .brand .seal{width:42px;height:42px;flex:none}
+  .brand .seal{height:42px;width:auto;flex:none;object-fit:contain;display:block}
   .brand .name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:.04em;line-height:1}
   .brand .name em{font-style:italic;font-weight:500;color:var(--jade)}
   .brand .tag{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:3px}
@@ -42,7 +42,7 @@
   .hero::before{content:"";position:absolute;inset:0;opacity:.10;background:radial-gradient(circle at 50% 40%,#fff 0%,transparent 60%)}
   .hero .seal-bg{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:540px;opacity:.06;pointer-events:none}
   .hero .inner{position:relative;z-index:2}
-  .hero .seal-top{width:74px;height:74px;margin-bottom:24px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
+  .hero .seal-top{width:110px;height:auto;margin-bottom:24px;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
   .hero h1{font-size:clamp(2.5rem,6.2vw,4.5rem);font-weight:600;line-height:1.05;margin:6px auto 8px;max-width:14ch}
   .hero h1 .it{font-style:italic;font-weight:500;color:#EBD9A8}
   .hero p.lede{font-size:1.04rem;color:#D7E4DE;max-width:46ch;margin:18px auto 0;font-weight:300}
@@ -247,7 +247,7 @@
 <header>
   <div class="wrap nav">
     <a href="#inicio" class="brand">
-      <svg class="seal"><use href="#emblem"/></svg>
+      <img class="seal" src="img/logo-encabezado.png" alt="Alma de Plata">
       <span><span class="name">Alma <em>de</em> Plata</span><span class="tag">Plata con alma mexicana</span></span>
     </a>
     <nav class="links" id="menu">
@@ -261,7 +261,7 @@
 <section class="hero" id="inicio">
   <svg class="seal-bg"><use href="#emblem"/></svg>
   <div class="wrap inner">
-    <svg class="seal-top"><use href="#emblem"/></svg>
+    <img class="seal-top" src="img/logo-central.png" alt="Alma de Plata">
     <div class="eyebrow on-dark">Joyería de plata .925 · México</div>
     <h1>El alma de México,<br><span class="it">en cada destello.</span></h1>
     <p class="lede">Anillos, aretes, collares, pulseras, dijes y conjuntos en plata .925, con diseños inspirados en la riqueza cultural y la naturaleza de México.</p>
