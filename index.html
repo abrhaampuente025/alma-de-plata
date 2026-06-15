@@ -38,9 +38,7 @@
   .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0}
 
   /* HERO */
-  .hero{position:relative;overflow:hidden;color:var(--pearl);text-align:center;background:var(--jade-deep);padding:96px 0 110px}
-  .hero-blur{position:absolute;inset:0;z-index:0;background:url('img/hero.jpg') center/cover;filter:blur(8px) brightness(.72);transform:scale(1.12)}
-  .hero-emblem{position:absolute;inset:0;z-index:1;background:url('img/hero.jpg') center/auto 92% no-repeat}
+  .hero{position:relative;overflow:hidden;color:var(--pearl);text-align:center;background:url('img/hero.jpg') center/cover no-repeat,var(--jade-deep);min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:96px 0 110px}
   .hero::after{content:"";position:absolute;inset:0;background:rgba(11,40,33,.30);z-index:2}
   .hero .eyebrow,.hero h1,.hero p.lede{text-shadow:0 2px 12px rgba(0,0,0,.5)}
   .hero .inner{position:relative;z-index:3}
@@ -260,8 +258,6 @@
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="hero-blur"></div>
-  <div class="hero-emblem"></div>
   <div class="wrap inner">
     <div class="eyebrow on-dark">Joyería de plata .925 · México</div>
     <h1>El alma de México,<br><span class="it">en cada destello.</span></h1>
